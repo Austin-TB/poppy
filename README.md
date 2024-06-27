@@ -26,6 +26,9 @@ Once the application is running:
 1. Click the "Check Update" button to fetch the current graphics driver version and the latest available version.
 2. The application will display the current version installed and the latest version available from NVIDIA. It will also indicate whether an update is available.
 
-## Contributing
-
+## Improvements I'm working on
+Currently working on: 
+- doing the scraping on cloud
+- front-end improvements
+  
 If you have suggestions for improvements or have encountered bugs, please feel free to contact me! 😊
