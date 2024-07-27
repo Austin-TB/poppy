@@ -10,7 +10,7 @@ To run the Driver Update Checker, you need the following:
 
 ## Installation
 
-No installation is required. Simply download the `Driver Update Checker.exe` file to your computer.
+No installation is required. Simply download the [`Driver Update Checker.exe`](https://github.com/Austin-TB/poppy/releases/download/alpha/poppy.exe) file to your computer.
 
 ## Running the Application
 
