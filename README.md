@@ -14,7 +14,7 @@ No installation is required. Simply download [`the latest release`](https://gith
 
 To run the Driver Update Checker:
 
-1. Double-click on `Driver Update Checker.exe` to launch the application.
+1. Double-click on `Poppy.exe` to launch the application.
 
 ## Usage
 
