@@ -1,0 +1,5 @@
+scraperv2.py
+window.spec
+build/
+dist/Poppy.exe
+__pycache__/
