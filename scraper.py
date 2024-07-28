@@ -8,13 +8,12 @@ class Scraper:
         
         try:
             response = requests.get(url)
-            response.raise_for_status()  # Raise an exception for bad status codes
+            response.raise_for_status()
             
             soup = BeautifulSoup(response.text, 'html.parser')
             drivers = soup.find_all(class_="s--drivers__driver s--drivers__driver--nvidia")
             
             if drivers:
-                # Assuming the first match is the latest driver
                 latest_driver = drivers[0].text.strip()
                 return latest_driver
             else:
