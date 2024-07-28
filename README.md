@@ -8,7 +8,7 @@
 
 ## Installation
 
-No installation is required. Simply download the [`Driver Update Checker.exe`](https://github.com/Austin-TB/poppy/releases/download/Beta/Poppy.exe) file to your computer.
+No installation is required. Simply download [`the latest release`](https://github.com/Austin-TB/poppy/releases/download/Beta/Poppy.exe) to your computer.
 
 ## Running the Application
 
