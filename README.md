@@ -1,23 +1,20 @@
 # Poppy
 
-`Poppy` is a Windows application that checks for graphics driver updates. It utilizes Selenium to fetch the latest driver version from the NVIDIA website and compares it with the current version installed on your system.
+`Poppy` is a Windows application that checks for NVIDIA graphics driver updates. It utilizes 'Beautiful Soup' to fetch the latest driver version from the web and compares it with the current version installed on your system.
 
 ## Prerequisites
-
-To run the Driver Update Checker, you need the following:
-
-- **GeckoDriver**: This tool is required for Selenium to interact with Firefox. You can download GeckoDriver from its [official GitHub repository](https://github.com/mozilla/geckodriver/releases). Ensure that the `geckodriver.exe` file is in a directory that is in your system's PATH.
+- Visual C++ Redistributable (installed by default on most windows systems)
+- Active internet connection
 
 ## Installation
 
-No installation is required. Simply download the [`Driver Update Checker.exe`](https://github.com/Austin-TB/poppy/releases/download/alpha/poppy.exe) file to your computer.
+No installation is required. Simply download the [`Driver Update Checker.exe`](https://github.com/Austin-TB/poppy/releases/download/Beta/Poppy.exe) file to your computer.
 
 ## Running the Application
 
 To run the Driver Update Checker:
 
-1. Ensure that `GeckoDriver` is correctly set up as described in the Prerequisites section.
-2. Double-click on `Driver Update Checker.exe` to launch the application.
+1. Double-click on `Driver Update Checker.exe` to launch the application.
 
 ## Usage
 
