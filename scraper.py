@@ -1,27 +1,24 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.firefox.service import Service
-from selenium.webdriver.firefox.options import Options
-from webdriver_manager.firefox import GeckoDriverManager
+import requests
+from bs4 import BeautifulSoup
 
 class Scraper:
     @staticmethod
     def fetch_latest_version():
-        options = Options()
-        options.headless = True 
-        options.add_argument('--disable-gpu')
-        options.add_argument('--no-sandbox')
-
-        service = Service(executable_path=GeckoDriverManager().install(), log_path='NUL')
-
-        driver = webdriver.Firefox(service=service, options=options)
-
+        url = "https://www.techpowerup.com"
+        
         try:
-            driver.get("https://www.nvidia.com/en-in/geforce/drivers/results/228255/")
-            driver.implicitly_wait(10)
-            version_element = driver.find_element(By.ID, "ddVersion_td")
-            version_text = version_element.text
-            version_number = version_text.split(" - ")[0] if " - " in version_text else version_text
-            return version_number.replace('.', '')
-        finally:
-            driver.quit()
+            response = requests.get(url)
+            response.raise_for_status()  # Raise an exception for bad status codes
+            
+            soup = BeautifulSoup(response.text, 'html.parser')
+            drivers = soup.find_all(class_="s--drivers__driver s--drivers__driver--nvidia")
+            
+            if drivers:
+                # Assuming the first match is the latest driver
+                latest_driver = drivers[0].text.strip()
+                return latest_driver
+            else:
+                return "No driver information found"
+        
+        except requests.RequestException as e:
+            return f"Error fetching data: {str(e)}"

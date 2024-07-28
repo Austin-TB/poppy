@@ -1,40 +1,47 @@
 import tkinter as tk
-from scraper import Scraper as sc
-from local import Local as lc
+from scraper import Scraper
+from local import Local
 
-def main_window():
-    global current_version_label
-    global latest_version_label
-    
-    root = tk.Tk()
-    root.title("Driver Update Checker")
-    root.geometry("400x200")
+class DriverUpdateChecker:
+    def __init__(self):
+        self.root = tk.Tk()
+        self.root.title("Driver Update Checker")
+        self.root.geometry("400x200")
 
-    label = tk.Label(root, text="Check for Graphics Driver Updates", font=("Arial", 14))
-    label.pack(pady=10)
+        self.setup_ui()
 
-    check_button = tk.Button(root, text="Check Update", command=check_update)
-    check_button.pack(pady=10)
+    def setup_ui(self):
+        label = tk.Label(self.root, text="Check for Graphics Driver Updates", font=("Arial", 14))
+        label.pack(pady=10)
 
-    current_version_label = tk.Label(root, text="Current Version: Not Checked", font=("Arial", 12))
-    current_version_label.pack(pady=5)
+        check_button = tk.Button(self.root, text="Check Update", command=self.check_update)
+        check_button.pack(pady=10)
 
-    latest_version_label = tk.Label(root, text="Latest Version: Not Checked", font=("Arial", 12))
-    latest_version_label.pack(pady=5)
+        self.current_version_label = tk.Label(self.root, text="Current Version: Not Checked", font=("Arial", 12))
+        self.current_version_label.pack(pady=5)
 
-    root.mainloop()
+        self.latest_version_label = tk.Label(self.root, text="Latest Version: Not Checked", font=("Arial", 12))
+        self.latest_version_label.pack(pady=5)
 
-def check_update():
-    current_version = lc.get_graphics_driver_version()
-    latest_version = sc.fetch_latest_version()
-    
-    current_version_label.config(text=f"Current Version: {current_version}")
-    latest_version_label.config(text=f"Latest Version: {latest_version}")
-    
-    if current_version.split(" - ")[-1] != latest_version.split(" - ")[-1]:
-        latest_version_label.config(text=f"Latest Version: {latest_version} (Update Available)")
-    else:
-        latest_version_label.config(text=f"Latest Version: {latest_version} (Up to Date)")
+    def check_update(self):
+        current_version = Local.get_graphics_driver_version()
+        latest_version = Scraper.fetch_latest_version()
+
+        self.current_version_label.config(text=f"Current Version: {current_version[:3]}.{current_version[3:]}")
+        
+        if latest_version.startswith("Error"):
+            self.latest_version_label.config(text=f"Latest Version: {latest_version}")
+        else:
+            latest_version_number = latest_version.split()[2]  # Assuming format "NVIDIA GeForce 560.70 WHQL"
+            
+            if current_version !=  latest_version_number.replace('.', ''):
+                self.latest_version_label.config(text=f"Latest Version: {latest_version_number} (Update Available)")
+            else:
+                self.latest_version_label.config(text=f"Latest Version: {latest_version_number} (Up to Date)")
+
+    def run(self):
+        self.root.mainloop()
 
 if __name__ == "__main__":
-    main_window()
+    app = DriverUpdateChecker()
+    app.run()
