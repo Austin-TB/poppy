@@ -24,7 +24,8 @@ Once the application is running:
 2. The application will display the current version installed and the latest version available from NVIDIA. It will also indicate whether an update is available.
 
 ## Improvements I'm working on
-Currently working on: 
+Currently working on:
+- fetching the URL to download the latest driver if update is available
 - doing the scraping on cloud
 - front-end improvements
   
