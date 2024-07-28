@@ -1,6 +1,6 @@
-# Driver Update Checker
+# Poppy
 
-Driver Update Checker is a Windows application that checks for graphics driver updates. It utilizes Selenium to fetch the latest driver version from the NVIDIA website and compares it with the current version installed on your system.
+`Poppy` is a Windows application that checks for graphics driver updates. It utilizes Selenium to fetch the latest driver version from the NVIDIA website and compares it with the current version installed on your system.
 
 ## Prerequisites
 
@@ -10,7 +10,7 @@ To run the Driver Update Checker, you need the following:
 
 ## Installation
 
-No installation is required. Simply download the `Driver Update Checker.exe` file to your computer.
+No installation is required. Simply download the [`Driver Update Checker.exe`](https://github.com/Austin-TB/poppy/releases/download/alpha/poppy.exe) file to your computer.
 
 ## Running the Application
 
