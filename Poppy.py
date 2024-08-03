@@ -6,7 +6,7 @@ import webbrowser
 class DriverUpdateChecker:
     def __init__(self):
         self.root = tk.Tk()
-        self.root.iconbitmap("icon.ico")
+        self.root.after(201, lambda :self.root.iconbitmap('icon.ico'))
         self.root.title("Driver Update Checker")
         self.root.geometry("400x250")
 

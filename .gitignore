@@ -5,3 +5,6 @@ build/
 dist/Poppy.exe
 __pycache__/
 StoreToOs.py
+scraper copy.py
+dist/window.exe
+Poppy.spec
