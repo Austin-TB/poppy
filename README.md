@@ -25,7 +25,6 @@ Once the application is running:
 
 ## Improvements I'm working on
 Currently working on:
-- fetching the URL to download the latest driver if update is available
 - doing the scraping on cloud
 - front-end improvements
   
