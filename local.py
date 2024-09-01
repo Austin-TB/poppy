@@ -7,4 +7,5 @@ class Local:
         drivers = []
         for item in c.Win32_VideoController():
             drivers.append(f"{item.Name} - {item.DriverVersion}")
-        return (drivers[-1][-6:]).replace('.','')
+        NVIDIADriver = [driver for driver in drivers if "NVIDIA" in driver]
+        return (NVIDIADriver[0][-6:]).replace('.','')
