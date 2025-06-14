@@ -1,10 +1,3 @@
 .gitignore
-scraperv2.py
-window.spec
-build/
-dist/Poppy.exe
-__pycache__/
-StoreToOs.py
-scraper copy.py
-dist/window.exe
-Poppy.spec
+node_modules/
+package-lock.json
