@@ -1,14 +1,13 @@
 # Poppy
-
-`Poppy` is a Windows application that checks for NVIDIA graphics driver updates. It utilizes 'Beautiful Soup' to fetch the latest driver version from the web and compares it with the current version installed on your system.
+I hate bloating my mid-tier system with the resource heavy NVIDIA app, just for the driver udpates. That's why I created `Poppy` - a Windows application that checks for NVIDIA graphics driver updates. It utilizes 'Beautiful Soup' to fetch the latest driver version from the web and compares it with the current version installed on your system.
 
 ## Prerequisites
-- Visual C++ Redistributable (installed by default on most windows systems)
 - Active internet connection
+- Nvidia GTX/RTX GPU(s)
 
 ## Installation
-
-No installation is required. Simply download [`the latest release`](https://github.com/Austin-TB/poppy/releases/download/beta/Poppy.exe) to your computer.
+There is an installable setup file which gives you faster launch, and a portable version that doesn't require installation.
+Check out the releases tab.
 
 ## Running the Application
 
@@ -21,11 +20,11 @@ To run the Driver Update Checker:
 Once the application is running:
 
 1. Click the "Check Update" button to fetch the current graphics driver version and the latest available version.
-2. The application will display the current version installed and the latest version available from NVIDIA. It will also indicate whether an update is available.
+2. The application will display the current version installed and the latest version available from NVIDIA. It will also indicate whether an update is available, and redirect you to the download URL (from NVIDIA).
 
 ## Improvements I'm working on
 Currently working on:
 - doing the scraping on cloud
-- front-end improvements
+- error handling for devices without NVIDIA-GPU
   
 If you have suggestions for improvements or have encountered bugs, please feel free to contact me! 😊
