@@ -13,6 +13,8 @@
     "electron": "^28.1.0"
   },
   "dependencies": {
+    "axios": "^1.10.0",
+    "cheerio": "^1.1.0",
     "node-wmi": "^0.0.2"
   }
-} 
+}
