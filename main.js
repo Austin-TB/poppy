@@ -9,10 +9,18 @@ function createWindow() {
     transparent: true,
     frame: false,
     webPreferences: {
-      nodeIntegration: true,
-      contextIsolation: false
+      nodeIntegration: false,
+      contextIsolation: true,
+      preload: path.join(__dirname, 'preload.js'),
+      devTools: false
     },
     icon: path.join(__dirname, 'icon.ico')
+  });
+
+  win.webContents.on('before-input-event', (event, input) => {
+    if (input.control && input.shift && (input.key.toLowerCase() === 'i' || input.key.toLowerCase() === 'j')) {
+      event.preventDefault();
+    }
   });
 
   win.loadFile('index.html');
@@ -41,4 +49,23 @@ ipcMain.on('window-control', (event, action) => {
   if (action === 'minimize') win.minimize();
   else if (action === 'maximize') win.isMaximized() ? win.unmaximize() : win.maximize();
   else if (action === 'close') win.close();
+});
+
+ipcMain.handle('get-gpu-version', async () => {
+  const { getGpuVersion } = require('./local_version');
+  return await getGpuVersion();
+});
+
+ipcMain.handle('get-latest-version', async () => {
+  const { getLatestVersion } = require('./latest_version');
+  return await getLatestVersion();
+});
+
+ipcMain.handle('open-external', async (event, url) => {
+  const { shell } = require('electron');
+  await shell.openExternal(url);
+});
+
+ipcMain.handle('quit-app', () => {
+  app.quit();
 }); 

@@ -1,7 +1,3 @@
-const { getGpuVersion } = require('./local_version');
-const { getLatestVersion } = require('./latest_version');
-const { shell, app, ipcRenderer } = require('electron');
-
 document.getElementById('checkUpdate').addEventListener('click', async () => {
     const checkBtn = document.getElementById('checkUpdate');
     const loader = document.getElementById('loader');
@@ -15,17 +11,17 @@ document.getElementById('checkUpdate').addEventListener('click', async () => {
     checkBtn.disabled = true;
 
     try {
-        const localVersionNumber = await getGpuVersion();
+        const localVersionNumber = await window.electronAPI.getGpuVersion();
         const localVersion = `${localVersionNumber.slice(0, 3)}.${localVersionNumber.slice(3, 5)}`;
-        const latestVersionNumber = await getLatestVersion();
+        const latestVersionNumber = await window.electronAPI.getLatestVersion();
         const latestVersion = `${latestVersionNumber.slice(0, 3)}.${latestVersionNumber.slice(3, 5)}`;
         const updateAvailable = parseInt(localVersionNumber) < parseInt(latestVersionNumber);
 
         if (updateAvailable) {
             downloadBtn.style.display = 'block';
             downloadBtn.onclick = () => {
-                shell.openExternal(`https://us.download.nvidia.com/Windows/${latestVersion}/${latestVersion}-notebook-win10-win11-64bit-international-dch-whql.exe`);
-                app.quit();
+                window.electronAPI.openExternal(`https://us.download.nvidia.com/Windows/${latestVersion}/${latestVersion}-notebook-win10-win11-64bit-international-dch-whql.exe`);
+                window.electronAPI.quitApp();
             };
         } else {
             downloadBtn.style.display = 'none';
@@ -44,13 +40,11 @@ document.getElementById('checkUpdate').addEventListener('click', async () => {
     }
 });
 
-// On load, hide download button
 window.onload = () => {
     document.getElementById('downloadButton').style.display = 'none';
 };
 
-// Custom title bar button handlers
 window.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('min-btn').onclick = () => ipcRenderer.send('window-control', 'minimize');
-    document.getElementById('close-btn').onclick = () => ipcRenderer.send('window-control', 'close');
+    document.getElementById('min-btn').onclick = () => window.electronAPI.windowControl('minimize');
+    document.getElementById('close-btn').onclick = () => window.electronAPI.windowControl('close');
 });
