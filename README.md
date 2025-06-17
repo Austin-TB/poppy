@@ -2,6 +2,7 @@
 I hate bloating my mid-tier system with the resource heavy NVIDIA app, just for the driver udpates. That's why I created `Poppy` - a Windows application that checks for NVIDIA graphics driver updates. It scrapes the web to fetch the latest driver version from the web and compares it with the current version installed on your system.
 
 ## Prerequisites
+- Windows OS
 - Active internet connection
 - Nvidia GTX/RTX GPU(s)
 
