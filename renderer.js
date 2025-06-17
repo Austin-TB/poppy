@@ -9,7 +9,6 @@ document.getElementById('checkUpdate').addEventListener('click', async () => {
     const currentVersionElement = document.getElementById('currentVersion');
     const latestVersionElement = document.getElementById('latestVersion');
 
-    downloadBtn.style.display = 'none';
     currentVersionElement.style.visibility = 'hidden';
     latestVersionElement.style.visibility = 'hidden';
     loader.style.display = 'block';
