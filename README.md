@@ -6,8 +6,7 @@ I hate bloating my mid-tier system with the resource heavy NVIDIA app, just for 
 - Nvidia GTX/RTX GPU(s)
 
 ## Installation
-There is an installable setup file which gives you faster launch, and a portable version that doesn't require installation.
-Check out the releases tab.
+There is an installable [setup file](https://github.com/Austin-TB/poppy/releases/download/beta/poppy.Setup.1.0.0.exe) which gives you a faster launch, and a [portable version](https://github.com/Austin-TB/poppy/releases/download/beta/Poppy.exe) that doesn't require installation. You can download from the releases tab too.
 
 ## Running the Application
 
