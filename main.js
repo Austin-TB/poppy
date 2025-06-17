@@ -3,8 +3,11 @@ const path = require('path');
 
 function createWindow() {
   const win = new BrowserWindow({
-    width: 400,
-    height: 300,
+    width: 600,
+    height: 600,
+    resizable: false,
+    transparent: true,
+    frame: false,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false
@@ -32,7 +35,10 @@ app.on('window-all-closed', () => {
   }
 });
 
-ipcMain.handle('check-version', async () => {
-  // Handle version checking
-  return { current: '420.20', latest: '569.69' };
+ipcMain.on('window-control', (event, action) => {
+  const win = BrowserWindow.getFocusedWindow();
+  if (!win) return;
+  if (action === 'minimize') win.minimize();
+  else if (action === 'maximize') win.isMaximized() ? win.unmaximize() : win.maximize();
+  else if (action === 'close') win.close();
 }); 

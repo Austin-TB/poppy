@@ -1,41 +1,116 @@
+html, body {
+    background: transparent !important;
+}
+
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #1e1e1e;
-    color: white;
+    color: #d0ffd6;
+    font-family: 'Segoe UI', Arial, sans-serif;
 }
 
 .container {
-    padding: 20px;
+    background: #181818;
+    border-radius: 18px;
+    box-shadow: 0 4px 32px 0 #00ff6a22;
+    padding: 0 32px 48px 32px;
+    margin: 40px auto;
+    min-width: 420px;
+    max-width: 420px;
     text-align: center;
 }
 
 h1 {
-    font-size: 18px;
-    margin-bottom: 20px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #aaffb7;
+    margin-bottom: 32px;
 }
 
 button {
-    background-color: #333333;
-    color: white;
+    background: linear-gradient(90deg, #00ff6a 0%, #00b34a 100%);
+    color: #111;
     border: none;
-    padding: 10px 20px;
-    margin: 10px 0;
+    padding: 14px 0;
+    margin: 18px auto 0 auto;
     cursor: pointer;
-    border-radius: 4px;
-    font-size: 14px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    width: 80%;
+    max-width: 320px;
+    display: block;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 12px 0 #00ff6a33;
 }
 
 button:hover {
-    background-color: #444444;
+    background: linear-gradient(90deg, #00b34a 0%, #00ff6a 100%);
+    color: #181818;
+    box-shadow: 0 4px 24px 0 #00ff6a55;
 }
 
 .version-info {
-    margin: 20px 0;
+    margin: 32px 0 18px 0;
 }
 
 .version-info p {
     margin: 10px 0;
-    font-size: 14px;
+    font-size: 1.1rem;
+    color: #d0ffd6;
+}
+
+#downloadButton {
+    margin-top: 24px;
+}
+
+/* Loading spinner */
+.loader {
+    border: 4px solid #222;
+    border-top: 4px solid #00ff6a;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 32px auto 0 auto;
+    display: none;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.custom-titlebar {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    position: relative;
+    top: 0;
+    right: 0;
+    -webkit-app-region: drag;
+}
+
+.custom-titlebar button {
+    background: #181818;
+    color: #00ff6a;
+    border: none;
+    border-radius: 4px;
+    width: 32px;
+    height: 28px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: none;
+    transition: background 0.2s, color 0.2s;
+    outline: none;
+    margin: 8px 2px;
+    padding: 0;
+    -webkit-app-region: no-drag;
+}
+
+.custom-titlebar button:hover {
+    background: #00ff6a;
+    color: #111;
 } 
